@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexis Estherose</title>
+  <meta name="description" content="Alexis Estherose (Alyx) — self-hosted infrastructure, Fediverse servers, and legacy protocol bridging.">
+  <link rel="canonical" href="https://estherose.online/">
+  <meta property="og:title" content="Alexis Estherose">
+  <meta property="og:description" content="Self-hosted infrastructure, Fediverse servers, and legacy protocol bridging.">
+  <meta property="og:url" content="https://estherose.online/">
+  <meta property="og:type" content="website">
+  <link rel="me" href="https://github.com/airi-kozume">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --text: #e7e9ee;
+      --muted: #9aa1ad;
+      --accent: #8fb3ff;
+      --border: #262b35;
+      --max-width: 680px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin: 0 0 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.9rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .links li {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .links a {
+      display: block;
+      padding: 0.9rem 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .links a:hover,
+    .links a:focus {
+      color: var(--accent);
+    }
+
+    .links span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      margin-top: 0.15rem;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      body {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Alexis Estherose</h1>
+      <p class="subtitle">Goes by Alyx. Self-hosted infrastructure, Fediverse servers, and legacy protocol bridging.</p>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        I work with self-hosted infrastructure — Fediverse servers, reverse proxies, and
+        bridging legacy protocols into modern, secure environments. Recent work includes
+        porting an old HTTP proxy off deprecated OpenSSL onto wolfSSL, and running a full
+        self-hosted stack (server, reverse proxy, identity) from the ground up.
+      </p>
+      <p>
+        I like tools that are minimal, auditable, and don't lock you in. Most of what I
+        build reflects that.
+      </p>
+    </section>
+
+    <section>
+      <h2>Find me</h2>
+      <ul class="links">
+        <li>
+          <a href="https://github.com/airi-kozume">GitHub
+            <span>Code, including the WebOne / wolfSSL port</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      &copy; 2026 Alexis Estherose
+    </footer>
+  </main>
+</body>
+</html>
