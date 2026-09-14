@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alexis Estherose</title>
-  <meta name="description" content="Alexis Estherose (Alyx) — self-hosted infrastructure, Fediverse servers, and legacy protocol bridging.">
+  <meta name="description" content="Alexis Estherose (Alyx) - self-hosted infrastructure, Fediverse servers, and legacy protocol bridging.">
   <link rel="canonical" href="https://estherose.online/">
   <meta property="og:title" content="Alexis Estherose">
   <meta property="og:description" content="Self-hosted infrastructure, Fediverse servers, and legacy protocol bridging.">
@@ -13,12 +13,14 @@
   <link rel="me" href="https://github.com/airi-kozume">
   <style>
     :root {
-      --bg: #0f1115;
-      --surface: #171a21;
-      --text: #e7e9ee;
-      --muted: #9aa1ad;
-      --accent: #8fb3ff;
-      --border: #262b35;
+      --bg: #0b0e0c;
+      --surface: #10140f;
+      --text: #c9d1c3;
+      --text-bright: #e4ecd9;
+      --muted: #6b7566;
+      --accent: #7fbf5f;
+      --accent-dim: #4d7a3a;
+      --border: #263021;
       --max-width: 680px;
     }
 
@@ -33,9 +35,13 @@
     body {
       margin: 0;
       background: var(--bg);
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+      background-size: 100% 2px;
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      font-family: "SFMono-Regular", "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 15px;
+      line-height: 1.65;
       padding: 1.5rem;
     }
 
@@ -47,17 +53,33 @@
 
     header {
       margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .prompt {
+      color: var(--accent-dim);
+      font-size: 0.85rem;
+      margin: 0 0 0.6rem;
     }
 
     h1 {
-      font-size: 1.9rem;
-      margin: 0 0 0.25rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin: 0 0 0.5rem;
       letter-spacing: -0.01em;
+    }
+
+    h1::before {
+      content: "~/ ";
+      color: var(--accent-dim);
+      font-weight: 400;
     }
 
     .subtitle {
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin: 0;
     }
 
@@ -66,15 +88,30 @@
     }
 
     h2 {
-      font-size: 1.1rem;
+      font-size: 0.85rem;
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin: 0 0 0.9rem;
+      letter-spacing: 0.08em;
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    h2::before {
+      content: "# ";
+      color: var(--accent-dim);
     }
 
     p {
       margin: 0 0 1rem;
+      color: var(--text);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--accent);
     }
 
     .links {
@@ -83,49 +120,56 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
 
     .links li {
       border: 1px solid var(--border);
-      border-radius: 10px;
       background: var(--surface);
     }
 
     .links a {
       display: block;
-      padding: 0.9rem 1.1rem;
-      color: var(--text);
+      padding: 0.85rem 1rem;
+      color: var(--text-bright);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .links a::before {
+      content: "> ";
+      color: var(--accent);
     }
 
     .links a:hover,
     .links a:focus {
-      color: var(--accent);
+      background: var(--border);
     }
 
     .links span {
       display: block;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 400;
-      margin-top: 0.15rem;
+      margin-top: 0.2rem;
+      padding-left: 1.1rem;
     }
 
     footer {
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       border-top: 1px solid var(--border);
       padding-top: 1.5rem;
     }
 
     @media (max-width: 480px) {
-      h1 {
-        font-size: 1.6rem;
-      }
       body {
+        font-size: 14px;
         padding: 1rem;
+      }
+      h1 {
+        font-size: 1.35rem;
       }
     }
   </style>
@@ -133,6 +177,7 @@
 <body>
   <main>
     <header>
+      <p class="prompt">visitor@estherose.online:~$ whoami</p>
       <h1>Alexis Estherose</h1>
       <p class="subtitle">Goes by Alyx. Self-hosted infrastructure, Fediverse servers, and legacy protocol bridging.</p>
     </header>
@@ -140,14 +185,31 @@
     <section>
       <h2>About</h2>
       <p>
-        I work with self-hosted infrastructure — Fediverse servers, reverse proxies, and
-        bridging legacy protocols into modern, secure environments. Recent work includes
-        porting an old HTTP proxy off deprecated OpenSSL onto wolfSSL, and running a full
-        self-hosted stack (server, reverse proxy, identity) from the ground up.
+        I'm a technically curious tinkerer with a particular weakness for old computers,
+        weird operating systems, and the parts of the internet most people have forgotten
+        existed. I run my own infrastructure - FreeBSD servers, snac2, Caddy, an ATProto
+        PDS - and enjoy digging into jails, ZFS, networking, PKI, and legacy protocols.
+        Recent work includes porting an old HTTP proxy off deprecated OpenSSL onto wolfSSL.
       </p>
       <p>
-        I like tools that are minimal, auditable, and don't lock you in. Most of what I
-        build reflects that.
+        I have a soft spot for the retro internet: CRTs, old Windows machines, classic
+        consoles, archived sites, and obsolete protocols - the era when the internet felt
+        like a collection of independently run places rather than a handful of giant
+        platforms. I'm especially interested in the boundary between "obsolete" and "still
+        perfectly usable if you know what you're doing."
+      </p>
+      <p>
+        Outside of infrastructure, I'm into games and visual novels with enough character
+        to inspire an unreasonable amount of analysis - GameCube/Wii-era stuff, retro PC
+        gaming, local multiplayer, and titles like Doki Doki Literature Club. I tend to
+        turn favorite characters or media into little personal projects rather than just
+        consuming them and moving on.
+      </p>
+      <p>
+        Privacy and ownership are recurring themes in most of what I do. I prefer software
+        and infrastructure I can inspect, configure, host, repair, or replace myself, and
+        I'd rather understand a system and work around its limits than accept an ecosystem's
+        assumption that its way is the only legitimate one.
       </p>
     </section>
 
